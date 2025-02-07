@@ -19,10 +19,11 @@ export default async function Pedidos() {
                     <div key={pedido.id} className="p-4 mb-4 bg-slate-200 rounded-lg">
                         <div>
                             <Link href={`/pedidos/${pedido.id}`} className="text-2xl block">
-                                {pedido.nombre}
+                            {pedido.fechaHora.toISOString().split('T')[0]}
                             </Link>
-                            <p>{pedido.fechaHora.toISOString().split('T')[0]}</p>
+                            
                             <p>{pedido.nombreCliente}</p>
+                            <p>{pedido.direccionCliente}</p>
                             <p>{pedido.repartidorId}</p>
                             
                         </div>
