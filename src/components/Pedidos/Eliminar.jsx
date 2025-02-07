@@ -1,17 +1,17 @@
-import { eliminarRepartidor } from "@/lib/actions";
+import { eliminarPedido } from "@/lib/actions";
 
-function RepartidorEliminar({ repartidor }) {
+function PedidoEliminar({ pedido }) {
     return (
         <>
             <h1 className="text-2xl text-red-600">¿Desea eliminar los siguentes datos</h1>
-            <p>Nombre: {repartidor.nombre}</p>
-            <p>Teléfono: {repartidor.telefono}</p>
-            <form action={eliminarRepartidor}>
-                <input type="hidden" name="id" defaultValue={repartidor.id} />
+            <p>Nombre: {pedido.nombre}</p>
+            <p>Precio: {pedido.precio}</p>
+            <form action={eliminarPedido}>
+                <input type="hidden" name="id" defaultValue={pedido.id} />
                 <button className="border-2 border-black">Eliminar</button>
             </form>
         </>
     );
 }
 
-export default RepartidorEliminar;
+export default PedidoEliminar;

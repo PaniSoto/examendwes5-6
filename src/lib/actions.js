@@ -71,28 +71,30 @@ export async function insertarPedido(formData) {
 
 export async function modificarPedido(formData) {
     const id = Number(formData.get('id'))
-    const nombre = formData.get('nombre')
-    const fechaNacimiento = new Date(formData.get('fechaNacimiento'))
-    const plantaId = formData.get('plantaId')
+    const fechaHora = new Date(formData.get('fechaHora'))
+    const nombreCliente = formData.get('nombreCliente')
+    const direccionCliente = formData.get('direccionCliente')
+    const repartidorId = formData.get('repartidorId')
 
     await prisma.pedido.update({
         where: {
             id: id
         },
         data: {
-            nombre: nombre,
-            fechaNacimiento: fechaNacimiento,
-            plantaId: +plantaId
+            fechaHora: fechaHora,
+            nombreCliente: nombreCliente,
+            direccionCliente: direccionCliente,
+            repartidorId: +repartidorId
         }
     })
 
     revalidatePath('/pedidos')
 }
 
-export async function eliminarPaciente(formData) {
+export async function eliminarPedido(formData) {
     const id = Number(formData.get('id'))
 
-    await prisma.paciente.delete({
+    await prisma.pedido.delete({
         where: {
             id: id
         }
@@ -101,48 +103,48 @@ export async function eliminarPaciente(formData) {
     revalidatePath('/pedidos')
 }
 
-// ------------------------------- ASIGNATURAS -----------------------
+// ------------------------------- PIZZAS -----------------------
 
-export async function insertarPlanta(formData) {
+export async function insertarPizza(formData) {
     const nombre = formData.get('nombre')
-    const jefePlanta = formData.get('jefePlanta')
+    const precio = formData.get('precio')
 
-    await prisma.planta.create({
+    await prisma.pizza.create({
         data: {
             nombre: nombre,
-            jefePlanta: jefePlanta,
+            precio: +precio,
         }
     })
 
-    revalidatePath('/plantas')
+    revalidatePath('/pizzas')
 }
 
-export async function modificarPlanta(formData) {
+export async function modificarPizza(formData) {
     const id = Number(formData.get('id'))
     const nombre = formData.get('nombre')
-    const jefePlanta = formData.get('jefePlanta')
+    const precio = formData.get('precio')
 
-    await prisma.planta.update({
+    await prisma.pizza.update({
         where: {
             id: id
         },
         data: {
             nombre: nombre,
-            jefePlanta: jefePlanta
+            precio: +precio
         }
     })
 
-    revalidatePath('/plantas')
+    revalidatePath('/pizzas')
 }
 
-export async function eliminarPlanta(formData) {
+export async function eliminarPizza(formData) {
     const id = Number(formData.get('id'))
 
-    await prisma.planta.delete({
+    await prisma.pizza.delete({
         where: {
             id: id
         }
     })
 
-    revalidatePath('/plantas')
+    revalidatePath('/pizzas')
 }

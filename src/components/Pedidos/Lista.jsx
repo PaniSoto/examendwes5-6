@@ -5,6 +5,9 @@ import { obtenerPedidos } from "@/lib/data";
 // import AsignaturaModificar from "./Modificar";
 // import AsignaturaInsertar from "./Insertar";
 import Link from "next/link";
+import PedidoInsertar from "./Insertar";
+import PedidoModificar from "./Modificar";
+import PedidoEliminar from "./Eliminar";
 export default async function Pedidos() {
     const pedidos = await obtenerPedidos()
     // const estudiantes = await obtenerEstudiantes()
@@ -12,27 +15,32 @@ export default async function Pedidos() {
     return (
         <div>
             {/* <Modal openElement={<p className="inline border-2 border-black">Insertar asignatura</p>}>
-                <AsignaturaInsertar estudiantes={estudiantes} />
+                
             </Modal> */}
+            <PedidoInsertar pedidos={pedidos} />
             {
                 pedidos.map(pedido =>
                     <div key={pedido.id} className="p-4 mb-4 bg-slate-200 rounded-lg">
                         <div>
                             <Link href={`/pedidos/${pedido.id}`} className="text-2xl block">
-                            {pedido.fechaHora.toISOString().split('T')[0]}
+                                {pedido.fechaHora.toISOString().split('T')[0]}
                             </Link>
-                            
+
                             <p>{pedido.nombreCliente}</p>
                             <p>{pedido.direccionCliente}</p>
                             <p>{pedido.repartidorId}</p>
-                            
+
                         </div>
                         {/* <Modal openElement={<p className="inline border-2 border-black">Modificar</p>}>
-                            <AsignaturaModificar asignatura={asignatura} estudiantes={estudiantes}/>
+                            
                         </Modal>
                         <Modal openElement={<p className="inline border-2 border-black">Eliminar</p>}>
-                            <AsignaturaEliminar asignatura={asignatura} />
+                           
                         </Modal> */}
+
+                        <PedidoModificar pedido={pedido}  />
+
+                        <PedidoEliminar pedido={pedido} />
                         <hr />
                     </div>
                 )

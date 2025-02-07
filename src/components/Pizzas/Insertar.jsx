@@ -1,8 +1,8 @@
-import { insertarPedido } from "@/lib/actions";
+import { insertarPizza } from "@/lib/actions";
 // import { useEffect, useActionState, useId } from "react";
 
 
-function PedidoInsertar({pedidos}) {
+function PizzaInsertar({pizzas}) {
     //{ medicinas }arriba esto
 
     // const formId = useId();
@@ -15,21 +15,19 @@ function PedidoInsertar({pedidos}) {
     //  }, [state])
 
     return (
-        <form action={insertarPedido}>
-             <input type="date" name="fechaHora" />
-            <input name="nombreCliente" placeholder="NombreCliente" />
-            <input name="direccionCliente" placeholder="direccionCliente" />
-            <input name="repartidorId" placeholder="repartidorId" />
+        <form action={insertarPizza}>
+            <input name="nombre" placeholder="Nombre" />
+            <input name="precio" placeholder="precio" />
             
             {/* {
-                pedidos.map(pedido =>
-                    <label key={pedido.id}>
+                pizzas.map(pizza =>
+                    <label key={pizza.id}>
                         <input
                             type="checkbox"
-                            name={`pedido${pedido.id}`}
-                            value={pedido.nombre} />
+                            name={`pizza${pizza.id}`}
+                            value={pizza.nombre} />
 
-                        {pedido.nombre}
+                        {pizza.nombre}
 
                     </label>
                 )
@@ -46,4 +44,4 @@ function PedidoInsertar({pedidos}) {
     );
 }
 
-export default PedidoInsertar;
+export default PizzaInsertar;

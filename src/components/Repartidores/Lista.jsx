@@ -18,7 +18,7 @@ export default async function Repartidores() {
             {/* <Modal openElement={<p className="inline border-2 border-black">Insertar asignatura</p>}>
                 
             </Modal> */}
-            {/* <RepartidorInsertar repartidores={repartidores} /> */}
+            <RepartidorInsertar repartidores={repartidores} />
 
             {
                 repartidores.map(repartidor =>
@@ -36,9 +36,9 @@ export default async function Repartidores() {
                         <Modal openElement={<p className="inline border-2 border-black">Eliminar</p>}>
                             
                         </Modal> */}
-                        {/* <RepartidorModificar repartidor={repartidor}/> */}
+                        <RepartidorModificar repartidor={repartidor}/>
 
-                        {/* <RepartidorEliminar repartidor={repartidor} /> */}
+                        <RepartidorEliminar repartidor={repartidor} />
                         <hr />
                     </div>
                 )

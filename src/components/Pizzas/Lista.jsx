@@ -5,6 +5,9 @@ import { obtenerPizzas } from "@/lib/data";
 // import AsignaturaModificar from "./Modificar";
 // import AsignaturaInsertar from "./Insertar";
 import Link from "next/link";
+import PizzaInsertar from "./Insertar";
+import PizzaModificar from "./Modificar";
+import PizzaEliminar from "./Eliminar";
 export default async function Pizzas() {
     const pizzas = await obtenerPizzas()
     // const estudiantes = await obtenerEstudiantes()
@@ -12,8 +15,10 @@ export default async function Pizzas() {
     return (
         <div>
             {/* <Modal openElement={<p className="inline border-2 border-black">Insertar asignatura</p>}>
-                <AsignaturaInsertar estudiantes={estudiantes} />
+                
             </Modal> */}
+
+            <PizzaInsertar pizzas={pizzas} />
             {
                 pizzas.map(pizza =>
                     <div key={pizza.id} className="p-4 mb-4 bg-slate-200 rounded-lg">
@@ -22,14 +27,16 @@ export default async function Pizzas() {
                                 {pizza.nombre}
                             </Link>
                             <p>{pizza.precio}</p>
-                            
+
                         </div>
                         {/* <Modal openElement={<p className="inline border-2 border-black">Modificar</p>}>
-                            <AsignaturaModificar asignatura={asignatura} estudiantes={estudiantes}/>
                         </Modal>
                         <Modal openElement={<p className="inline border-2 border-black">Eliminar</p>}>
-                            <AsignaturaEliminar asignatura={asignatura} />
+                            
                         </Modal> */}
+                        <PizzaModificar pizza={pizza} />
+                        <PizzaEliminar pizza={pizza} />
+
                         <hr />
                     </div>
                 )

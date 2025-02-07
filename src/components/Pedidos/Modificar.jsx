@@ -1,12 +1,19 @@
-import { modificarRepartidor } from "@/lib/actions";
+import { modificarPedido} from "@/lib/actions";
 
-function RepartidorModificar({ repartidor }) {
+function PedidoModificar({ pedido }) {
 
     return (
-        <form action={modificarRepartidor}>
-            <input type="hidden" name="id" defaultValue={repartidor.id} />
-            <input name='nombre' defaultValue={repartidor.nombre} />
-            <input name='telefono' defaultValue={repartidor.telefono} />
+        <form action={modificarPedido}>
+            <input type="hidden" name="id" defaultValue={pedido.id} />
+            <input type="date" name='fechaHora' defaultValue={pedido.fechaHora} />
+
+            <input name='nombreCliente' placeholder="nombreCliente" defaultValue={pedido.nombreCliente} />
+
+            <input name='direccionCliente' placeholder="direccionCliente" defaultValue={pedido.direccionCliente} />
+
+            <input name='repartidorId' placeholder="repartidorId" defaultValue={pedido.repartidorId} />
+
+            
 
             {/* <input name='nombre' defaultValue={plantas.nombre} /> importar plantas */}
 
@@ -26,4 +33,4 @@ function RepartidorModificar({ repartidor }) {
     );
 }
 
-export default RepartidorModificar;
+export default PedidoModificar;
