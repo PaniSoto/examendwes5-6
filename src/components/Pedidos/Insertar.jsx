@@ -2,7 +2,7 @@ import { insertarPedido } from "@/lib/actions";
 // import { useEffect, useActionState, useId } from "react";
 
 
-function PedidoInsertar({pedidos}) {
+function PedidoInsertar({repartidores}) {
     //{ medicinas }arriba esto
 
     // const formId = useId();
@@ -21,19 +21,19 @@ function PedidoInsertar({pedidos}) {
             <input name="direccionCliente" placeholder="direccionCliente" />
             <input name="repartidorId" placeholder="repartidorId" />
             
-            {/* {
-                pedidos.map(pedido =>
-                    <label key={pedido.id}>
+            {
+                repartidores.map(repartidor =>
+                    <label key={repartidor.id}>
                         <input
                             type="checkbox"
-                            name={`pedido${pedido.id}`}
-                            value={pedido.nombre} />
+                            name={`repartidor${repartidor.id}`}
+                            value={repartidor.nombre} />
 
-                        {pedido.nombre}
+                        {repartidor.nombre}
 
                     </label>
                 )
-            } */}
+            }
 
             <button
                 // disabled={pending}
