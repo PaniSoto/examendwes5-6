@@ -8,6 +8,7 @@ import Link from "next/link";
 import RepartidorInsertar from "./Insertar";
 import RepartidorModificar from "./Modificar";
 import RepartidorEliminar from "./Eliminar";
+import Modal from "@/components/Modal";
 // import RepartidorInsertar from "./Insertar";
 export default async function Repartidores() {
     const repartidores = await obtenerRepartidores()
@@ -15,10 +16,10 @@ export default async function Repartidores() {
     //console.log(asignaturas);
     return (
         <div>
-            {/* <Modal openElement={<p className="inline border-2 border-black">Insertar asignatura</p>}>
-                
-            </Modal> */}
-            <RepartidorInsertar repartidores={repartidores} />
+            <Modal openElement={<p className="inline border-2 border-black">Insertar asignatura</p>}>
+                <RepartidorInsertar repartidores={repartidores} />
+            </Modal>
+
 
             {
                 repartidores.map(repartidor =>
@@ -29,16 +30,16 @@ export default async function Repartidores() {
                             </Link>
                             <p>{repartidor.telefono}</p>
                         </div>
-                        {/* <Modal openElement={<p className="inline border-2 border-black">Modificar</p>}>
-                            
+                        <Modal openElement={<p className="inline border-2 border-black">Modificar</p>}>
+                            <RepartidorModificar repartidor={repartidor} />
                         </Modal>
-                        
-                        <Modal openElement={<p className="inline border-2 border-black">Eliminar</p>}>
-                            
-                        </Modal> */}
-                        <RepartidorModificar repartidor={repartidor}/>
 
-                        <RepartidorEliminar repartidor={repartidor} />
+                        <Modal openElement={<p className="inline border-2 border-black">Eliminar</p>}>
+                            <RepartidorEliminar repartidor={repartidor} />
+                        </Modal>
+
+
+
                         <hr />
                     </div>
                 )
