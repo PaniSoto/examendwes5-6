@@ -37,5 +37,4 @@ function Skeleton() {
             <div className="skeleton h-72 w-full"></div>
         </div>
     )
-
 }

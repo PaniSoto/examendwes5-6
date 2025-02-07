@@ -3,17 +3,7 @@ import { insertarPedido } from "@/lib/actions";
 
 
 function PedidoInsertar({ repartidores, pizzas }) {
-    //{ medicinas }arriba esto
-
-    // const formId = useId();
-
-    // const [state, action, pending] = useActionState(insertarAsignatura, {});
-
-    // useEffect(() => { 
-    //     if(state.success) alert(state.success)
-    //         document.getElementById(formId)?.closest('dialog')?.close()
-    //  }, [state])
-
+   
     return (
         <form action={insertarPedido}>
             <input type="date" name="fechaHora" />
@@ -48,10 +38,8 @@ function PedidoInsertar({ repartidores, pizzas }) {
             }
 
             <button
-                // disabled={pending}
                 className="border-2 border-black disabled:bg-gray-200"
             >
-                {/* {pending ? "Insertando..." : "Insertar asignatura"} */}
                 Insertar
             </button>
         </form>

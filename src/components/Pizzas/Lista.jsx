@@ -11,14 +11,12 @@ import PizzaEliminar from "./Eliminar";
 import Modal from "@/components/Modal";
 export default async function Pizzas() {
     const pizzas = await obtenerPizzas()
-    // const estudiantes = await obtenerEstudiantes()
-    //console.log(asignaturas);
+    
     return (
         <div>
             <Modal openElement={<p className="inline border-2 border-black">Insertar pizza</p>}>
                 <PizzaInsertar pizzas={pizzas} />
             </Modal>
-
 
             {
                 pizzas.map(pizza =>
@@ -36,9 +34,6 @@ export default async function Pizzas() {
                         <Modal openElement={<p className="inline border-2 border-black">Eliminar</p>}>
                             <PizzaEliminar pizza={pizza} />
                         </Modal>
-
-
-
                         <hr />
                     </div>
                 )

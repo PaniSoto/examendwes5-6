@@ -20,7 +20,6 @@ export default async function Repartidores() {
                 <RepartidorInsertar repartidores={repartidores} />
             </Modal>
 
-
             {
                 repartidores.map(repartidor =>
                     <div key={repartidor.id} className="p-4 mb-4 bg-slate-200 rounded-lg">
@@ -37,9 +36,6 @@ export default async function Repartidores() {
                         <Modal openElement={<p className="inline border-2 border-black">Eliminar</p>}>
                             <RepartidorEliminar repartidor={repartidor} />
                         </Modal>
-
-
-
                         <hr />
                     </div>
                 )
