@@ -15,7 +15,7 @@ export default async function Pizzas() {
     //console.log(asignaturas);
     return (
         <div>
-            <Modal openElement={<p className="inline border-2 border-black">Insertar asignatura</p>}>
+            <Modal openElement={<p className="inline border-2 border-black">Insertar pizza</p>}>
                 <PizzaInsertar pizzas={pizzas} />
             </Modal>
 

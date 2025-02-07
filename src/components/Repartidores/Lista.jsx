@@ -16,7 +16,7 @@ export default async function Repartidores() {
     //console.log(asignaturas);
     return (
         <div>
-            <Modal openElement={<p className="inline border-2 border-black">Insertar asignatura</p>}>
+            <Modal openElement={<p className="inline border-2 border-black">Insertar repartidor</p>}>
                 <RepartidorInsertar repartidores={repartidores} />
             </Modal>
 

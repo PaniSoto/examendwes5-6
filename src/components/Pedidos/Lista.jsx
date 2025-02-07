@@ -1,4 +1,4 @@
-import { obtenerPedidos, obtenerRepartidores } from "@/lib/data";
+import { obtenerPedidos, obtenerPizzas, obtenerRepartidores } from "@/lib/data";
 import Link from "next/link";
 import PedidoInsertar from "./Insertar";
 import PedidoModificar from "./Modificar";
@@ -8,11 +8,12 @@ import Modal from "@/components/Modal";
 export default async function Pedidos() {
     const pedidos = await obtenerPedidos()
     const repartidores = await obtenerRepartidores()
+    const pizzas = await obtenerPizzas()
     
     return (
         <div>
-            <Modal openElement={<p className="inline border-2 border-black">Insertar asignatura</p>}>
-                <PedidoInsertar pedidos={pedidos} repartidores={repartidores}/>
+            <Modal openElement={<p className="inline border-2 border-black">Insertar pedido</p>}>
+                <PedidoInsertar pedidos={pedidos} repartidores={repartidores} pizzas={pizzas} />
             </Modal>
 
             {
@@ -29,7 +30,7 @@ export default async function Pedidos() {
 
                         </div>
                         <Modal openElement={<p className="inline border-2 border-black">Modificar</p>}>
-                            <PedidoModificar pedido={pedido} repartidores={repartidores} />
+                            <PedidoModificar pedido={pedido} repartidores={repartidores} pizzas={pizzas} />
                         </Modal>
                         <Modal openElement={<p className="inline border-2 border-black">Eliminar</p>}>
                             <PedidoEliminar pedido={pedido} />

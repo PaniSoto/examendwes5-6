@@ -1,6 +1,6 @@
-import { modificarPedido} from "@/lib/actions";
+import { modificarPedido } from "@/lib/actions";
 
-function PedidoModificar({ pedido, repartidores }) {
+function PedidoModificar({ pedido, repartidores, pizzas }) {
 
     return (
         <form action={modificarPedido}>
@@ -9,7 +9,7 @@ function PedidoModificar({ pedido, repartidores }) {
             <input name='nombreCliente' placeholder="nombreCliente" defaultValue={pedido.nombreCliente} />
             <input name='direccionCliente' placeholder="direccionCliente" defaultValue={pedido.direccionCliente} />
             <input name='repartidorId' placeholder="repartidorId" defaultValue={pedido.repartidorId} />
-            
+
             <input name='nombre' defaultValue={repartidores.nombre} />
 
             {
@@ -18,6 +18,17 @@ function PedidoModificar({ pedido, repartidores }) {
                     {repartidores.map(repartidor => (
                         <option key={repartidor.id} value={repartidor.id}>
                             {repartidor.nombre}
+                        </option>
+                    ))}
+                </select>
+            }
+
+            {
+                <select name="nombre">
+                    <option value="">-- Seleccione una pizza --</option>
+                    {pizzas.map(pizza => (
+                        <option key={pizza.id} value={pizza.id}>
+                            {pizza.nombre}
                         </option>
                     ))}
                 </select>
